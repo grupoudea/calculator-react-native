@@ -10,12 +10,35 @@ const CalculatorScreen = () => {
         <Text style={styles.texto}>1500</Text>
 
         <View style={styles.fila}>
-            <ButtonCalculator texto='C' color='#2d2d2d' />
-            <ButtonCalculator texto='C' color='#ff9427' />
-            <ButtonCalculator texto='C' />
             <ButtonCalculator texto='C' color='#9b9b9b' />
-
+            <ButtonCalculator texto='+/-' color='#9b9b9b' />
+            <ButtonCalculator texto='%' color='#9b9b9b'/>
+            <ButtonCalculator texto='/' color='#ff9427' />
         </View>
+        <View style={styles.fila}>
+            <ButtonCalculator texto='7'  />
+            <ButtonCalculator texto='8'  />
+            <ButtonCalculator texto='9' />
+            <ButtonCalculator texto='x' color='#ff9427' />
+        </View>
+        <View style={styles.fila}>
+            <ButtonCalculator texto='4'  />
+            <ButtonCalculator texto='5'  />
+            <ButtonCalculator texto='6' />
+            <ButtonCalculator texto='-' color='#ff9427' />
+        </View>
+        <View style={styles.fila}>
+            <ButtonCalculator texto='1'  />
+            <ButtonCalculator texto='2'  />
+            <ButtonCalculator texto='3' />
+            <ButtonCalculator texto='+' color='#ff9427' />
+        </View>
+        <View style={styles.fila}>
+            <ButtonCalculator texto='0' ancho />
+            <ButtonCalculator texto='.'  />
+            <ButtonCalculator texto='=' color='#ff9427' />
+        </View>
+
     </View>
   )
 }
