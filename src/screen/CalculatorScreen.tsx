@@ -13,8 +13,47 @@ const CalculatorScreen = () => {
     }
 
     const armarNumero = (numeroTexto: string) => {
-        setNumero(numero+numeroTexto)
 
+        if(numero.includes('.') && numeroTexto === '.') return;
+
+        if (numero.startsWith('0') || numero.startsWith('-0')) {
+            if (numeroTexto === '.'){
+                setNumero(numero + numeroTexto)
+
+            } else if (numeroTexto === '0' && numero.includes('.')) {
+                setNumero(numero + numeroTexto)
+
+            } else if (numeroTexto !== '0' && !numero.includes('.')) {
+                setNumero(numeroTexto)
+            } else if (numeroTexto === '0' && !numero.includes('.')) {
+                setNumero(numero)
+            } else {
+                setNumero(numero + numeroTexto)
+            }
+
+
+        } else {
+            setNumero(numero+numeroTexto)
+        }
+
+    }
+
+    const positivoNegativo = () => {
+        if (numero.includes('-')) {
+            setNumero(numero.replace('-', ''))
+        } else {
+            setNumero('-'+numero)
+        }
+    }
+
+    const eliminarUltimoNumero = () => {
+        if (numero.length === 1) {
+            setNumero('0')
+        } else if ((numero.length === 1 && numero === '0') || ( numero === '-0')) {
+            setNumero('0')
+        } else {
+            setNumero(numero.substring(0, numero.length-1))
+        }
     }
 
 
@@ -25,8 +64,8 @@ const CalculatorScreen = () => {
 
         <View style={styles.fila}>
             <ButtonCalculator texto='C' color='#9b9b9b' action={limpiar}/>
-            <ButtonCalculator texto='+/-' color='#9b9b9b' action={limpiar}/>
-            <ButtonCalculator texto='%' color='#9b9b9b'action={limpiar}/>
+            <ButtonCalculator texto='+/-' color='#9b9b9b' action={positivoNegativo}/>
+            <ButtonCalculator texto='del' color='#9b9b9b'action={eliminarUltimoNumero}/>
             <ButtonCalculator texto='/' color='#ff9427' action={limpiar}/>
         </View>
         <View style={styles.fila}>
