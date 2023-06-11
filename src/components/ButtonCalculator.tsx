@@ -5,12 +5,15 @@ import { styles } from '../theme/AppTheme'
 interface ButtonCalculatorProps {
     texto: string,
     color?: string,
-    ancho?: boolean
+    ancho?: boolean,
+    action: (numeroTexto: string) => void
 }
 
-const ButtonCalculator = ({texto, color = '#2d2d2d', ancho = false}: ButtonCalculatorProps) => {
+const ButtonCalculator = ({texto, color = '#2d2d2d', ancho = false, action}: ButtonCalculatorProps) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+    onPress={() => {action(texto);}}
+    >
         <View style={{
             ...styles.boton,
             backgroundColor: color,
