@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import {Vibration, Text, TouchableOpacity, View } from 'react-native'
 import { styles } from '../theme/AppTheme'
 
 interface ButtonCalculatorProps {
@@ -10,9 +10,14 @@ interface ButtonCalculatorProps {
 }
 
 const ButtonCalculator = ({texto, color = '#2d2d2d', ancho = false, action}: ButtonCalculatorProps) => {
+
+    const handlePress = () => {
+        action(texto);
+    };
+
   return (
     <TouchableOpacity
-    onPress={() => {action(texto);}}
+    onPress={handlePress}
     >
         <View style={{
             ...styles.boton,
